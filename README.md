@@ -1,6 +1,7 @@
 # Wordpress Containerの作り方
 
 Docker containerでWordpressを動かす方法について。
+
 Docker Hubより公式のWordpressとMariaDBのコンテナを利用。
 
 MariaDBのコンテナは `docker-entrypoint-initdb.d` 内に置かれた、
@@ -9,7 +10,7 @@ MariaDBのコンテナは `docker-entrypoint-initdb.d` 内に置かれた、
 Wordpressのコンテンツは `wp-content` に入っているため、
 それ以外の部分については公式のWordpressコンテナのものを利用。
 （通常Wordpressのデータ移行の際には `wp-config.php` の設定変更も必要だが、
-　公式のWordpressコンテナは `wp-config.php` を環境変数から自動生成するため今回は不要）
+公式のWordpressコンテナは `wp-config.php` を環境変数から自動生成するため今回は不要）
 
 ## 必要なツール
 
