@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+  wordpress:
+    image: wordpress
+    environment:
+      WORDPRESS_DB_HOST: mariadb
+      WORDPRESS_DB_USER: wp
+      WORDPRESS_DB_PASSWORD: password1234
+      WORDPRESS_DB_NAME: "wordpress-db"
+    ports:
+      - "80:80"
+    volumes:
+      - ./wp-content:/var/www/html/wp-content
+    depends_on:
+      - mariadb
+
+  mariadb:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: "wordpress-db"
+      MYSQL_USER: wp
+      MYSQL_PASSWORD: password1234
+    volumes:
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+
